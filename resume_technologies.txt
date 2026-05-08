@@ -15,8 +15,8 @@ Backend & APIs:
 • JSON Web Tokens (JWT) for secure user login
 
 Database:
-• SQL / SQLite (Relational database to store users and attendance)
-• Prisma ORM (To connect Node.js to the SQL database)
+• SQL / PostgreSQL (Cloud database via Neon.tech)
+• Prisma ORM (Type-safe database access)
 
 Key Technical Concepts Implemented:
 --------------------------------------------------
