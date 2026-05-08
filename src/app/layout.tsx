@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SmartPresence",
+  title: "CheckSphere",
   description: "Contactless attendance and classroom presence intelligence system",
 };
 

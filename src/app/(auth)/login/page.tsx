@@ -54,7 +54,7 @@ export default function LoginPage() {
         
         <div className="text-center mb-8">
           <Fingerprint className="w-12 h-12 text-primary-400 mx-auto mb-4" />
-          <h1 className="text-3xl font-bold text-gradient mb-2">SmartPresence</h1>
+          <h1 className="text-3xl font-bold text-gradient mb-2">CheckSphere</h1>
           <p className="text-gray-400">Sign in to your account</p>
         </div>
 

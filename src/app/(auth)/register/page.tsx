@@ -58,7 +58,7 @@ export default function RegisterPage() {
         <div className="text-center mb-6">
           <ShieldCheck className="w-12 h-12 text-accent-400 mx-auto mb-4" />
           <h1 className="text-3xl font-bold text-gradient mb-2">Initialize Profile</h1>
-          <p className="text-gray-400">Create your SmartPresence identity</p>
+          <p className="text-gray-400">Create your CheckSphere identity</p>
         </div>
 
         {error && (
