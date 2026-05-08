@@ -15,8 +15,8 @@ Backend & APIs:
 • JSON Web Tokens (JWT) for secure user login
 
 Database:
-• MongoDB (Database to store users and attendance)
-• Mongoose (To connect Node.js to MongoDB)
+• SQL / SQLite (Relational database to store users and attendance)
+• Prisma ORM (To connect Node.js to the SQL database)
 
 Key Technical Concepts Implemented:
 --------------------------------------------------

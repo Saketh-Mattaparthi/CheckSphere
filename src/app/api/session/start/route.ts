@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import jwt from 'jsonwebtoken';
-import dbConnect from '@/lib/mongodb';
-import Session from '@/models/Session';
+import prisma from '@/lib/db';
 
 export async function POST(req: Request) {
   try {
@@ -15,19 +14,22 @@ export async function POST(req: Request) {
       return NextResponse.json({ message: 'Forbidden' }, { status: 403 });
     }
 
-    await dbConnect();
     const { className, subject, lat, lng, radius } = await req.json();
 
     // Generate a random 6-character alphanumeric secret code
     const secretCode = Math.random().toString(36).substring(2, 8).toUpperCase();
 
-    const newSession = await Session.create({
-      teacherId: decoded.id,
-      className,
-      subject,
-      location: { lat, lng, radius },
-      secretCode,
-      status: 'active'
+    const newSession = await prisma.session.create({
+      data: {
+        teacherId: decoded.id,
+        className,
+        subject,
+        lat: parseFloat(lat),
+        lng: parseFloat(lng),
+        radius: parseFloat(radius) || 50,
+        secretCode,
+        status: 'active'
+      }
     });
 
     return NextResponse.json({
@@ -36,6 +38,7 @@ export async function POST(req: Request) {
     }, { status: 201 });
 
   } catch (error) {
+    console.error(error);
     return NextResponse.json({ message: 'Error starting session', error }, { status: 500 });
   }
 }

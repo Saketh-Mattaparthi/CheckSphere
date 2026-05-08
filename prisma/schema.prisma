@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String       @id @default(uuid())
+  name              String
+  email             String       @unique
+  password          String
+  role              String       @default("student") // 'admin', 'teacher', 'student'
+  studentId         String?      @unique
+  deviceFingerprint String?
+  createdAt         DateTime     @default(now())
+  sessions          Session[]    // For teachers
+  attendances       Attendance[] // For students
+}
+
+model Session {
+  id          String       @id @default(uuid())
+  teacherId   String
+  teacher     User         @relation(fields: [teacherId], references: [id])
+  className   String
+  subject     String
+  startTime   DateTime     @default(now())
+  endTime     DateTime?
+  status      String       @default("active")
+  lat         Float
+  lng         Float
+  radius      Float        @default(50)
+  secretCode  String
+  createdAt   DateTime     @default(now())
+  attendances Attendance[]
+}
+
+model Attendance {
+  id                String    @id @default(uuid())
+  sessionId         String
+  session           Session   @relation(fields: [sessionId], references: [id])
+  studentId         String
+  student           User      @relation(fields: [studentId], references: [id])
+  checkInTime       DateTime  @default(now())
+  checkOutTime      DateTime?
+  status            String    @default("present") // 'present', 'absent', 'proxy_suspected'
+  deviceFingerprint String?
+}

@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server';
 import jwt from 'jsonwebtoken';
-import dbConnect from '@/lib/mongodb';
-import Session from '@/models/Session';
-import Attendance from '@/models/Attendance';
+import prisma from '@/lib/db';
 
 // Helper function to calculate distance using Haversine formula
 function getDistance(lat1: number, lon1: number, lat2: number, lon2: number) {
@@ -32,10 +30,9 @@ export async function POST(req: Request) {
       return NextResponse.json({ message: 'Only students can check in' }, { status: 403 });
     }
 
-    await dbConnect();
     const { sessionId, secretCode, lat, lng, deviceFingerprint } = await req.json();
 
-    const session = await Session.findById(sessionId);
+    const session = await prisma.session.findUnique({ where: { id: sessionId } });
     if (!session || session.status !== 'active') {
       return NextResponse.json({ message: 'Session not found or inactive' }, { status: 404 });
     }
@@ -45,29 +42,35 @@ export async function POST(req: Request) {
     }
 
     // Geofencing verification
-    const distance = getDistance(session.location.lat, session.location.lng, lat, lng);
-    if (distance > session.location.radius) {
+    const distance = getDistance(session.lat, session.lng, parseFloat(lat), parseFloat(lng));
+    if (distance > session.radius) {
       return NextResponse.json({ message: 'You are outside the classroom proximity zone' }, { status: 403 });
     }
 
     // Check if already checked in
-    const existing = await Attendance.findOne({ sessionId, studentId: decoded.id });
+    const existing = await prisma.attendance.findFirst({
+      where: { sessionId, studentId: decoded.id }
+    });
     if (existing) {
       return NextResponse.json({ message: 'Already checked in' }, { status: 400 });
     }
 
     // Proxy Detection: Check if another student checked in with same device fingerprint
-    const proxyCheck = await Attendance.findOne({ sessionId, deviceFingerprint });
+    const proxyCheck = await prisma.attendance.findFirst({
+      where: { sessionId, deviceFingerprint }
+    });
     let status = 'present';
     if (proxyCheck && deviceFingerprint) {
        status = 'proxy_suspected';
     }
 
-    const attendance = await Attendance.create({
-      sessionId,
-      studentId: decoded.id,
-      deviceFingerprint,
-      status
+    const attendance = await prisma.attendance.create({
+      data: {
+        sessionId,
+        studentId: decoded.id,
+        deviceFingerprint,
+        status
+      }
     });
 
     return NextResponse.json({
@@ -76,6 +79,7 @@ export async function POST(req: Request) {
     }, { status: 201 });
 
   } catch (error) {
+    console.error(error);
     return NextResponse.json({ message: 'Error during check-in', error }, { status: 500 });
   }
 }
