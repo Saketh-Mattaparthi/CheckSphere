@@ -13,11 +13,9 @@ CheckSphere is a smart attendance system built with **Next.js 15**, **Prisma**, 
 
 ## 🛠 Tech Stack
 
-- **Framework**: Next.js 15 (App Router)
-- **Database**: PostgreSQL (Cloud-hosted on Neon.tech)
-- **ORM**: Prisma (Type-safe SQL access)
-- **Styling**: Tailwind CSS v4 & Framer Motion
-- **Auth**: JWT (JSON Web Tokens) with Role-Based Access Control
+- **Frontend**: React.js, Tailwind CSS, Framer Motion
+- **Backend**: Node.js, Next.js API Routes, JWT
+- **Database**: PostgreSQL (Neon.tech), Prisma ORM
 
 ## 🚀 Getting Started
 
@@ -51,4 +49,21 @@ Navigate to `http://localhost:3000` to view the application.
 1. **Initialize Setup**: Go to `/register` and create an account. You can choose to register as an `admin`, `teacher`, or `student`.
 2. **Access Terminal**: Go to `/login` to access your respective dashboard.
 3. **Teacher Flow**: Navigate to "Initialize Session", set the class details, and start the live session. A code will appear.
-4. **Student Flow**: Navigate to "Join Live Session", ensure you are physically near the coordinates, and enter the code displayed on the teacher's screen.
+5. **Student Flow**: Navigate to "Join Live Session", ensure you are physically near the coordinates, and enter the code displayed on the teacher's screen.
+
+---
+
+## 📄 Resume-Ready Description
+
+**Role: Full-Stack Developer**
+
+### Core Technologies:
+- **Frontend**: React.js, Tailwind CSS (Responsive Design), HTML5/CSS3
+- **Backend**: Node.js, REST APIs, JSON Web Tokens (JWT)
+- **Database**: SQL / PostgreSQL (Neon.tech), Prisma ORM
+
+### Key Concepts Implemented:
+- **Role-Based Access Control**: Custom dashboards for Admin, Teacher, and Student roles.
+- **Geofencing**: Real-time GPS location validation for attendance integrity.
+- **Security**: Secure authentication with hashed passwords and token-based sessions.
+- **Responsive UI**: Fully optimized for mobile and desktop screens.
