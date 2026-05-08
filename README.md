@@ -1,6 +1,6 @@
 # CheckSphere 🚀
 
-CheckSphere is a futuristic, full-stack intelligence system for contactless classroom attendance. It eliminates proxy attendance through a combination of geofencing, dynamic QR code verification, and device fingerprinting. Now powered by a relational SQL database with Prisma ORM.
+CheckSphere is a smart attendance system built with **Next.js 15**, **Prisma**, and **PostgreSQL**. It uses GPS (Geofencing) to make sure students are actually in the classroom, preventing proxy attendance and making tracking easy for everyone.
 
 ## 🌟 Features
 
@@ -13,27 +13,30 @@ CheckSphere is a futuristic, full-stack intelligence system for contactless clas
 
 ## 🛠 Tech Stack
 
-- **Frontend**: Next.js 15 (App Router), React, Tailwind CSS v4, Framer Motion, Recharts
-- **Backend**: Next.js API Routes (Node.js/Express-like environment)
-- **Database**: MongoDB (Mongoose)
-- **Authentication**: Custom JWT Authentication with Role-Based Access Control
+- **Framework**: Next.js 15 (App Router)
+- **Database**: PostgreSQL (Cloud-hosted on Neon.tech)
+- **ORM**: Prisma (Type-safe SQL access)
+- **Styling**: Tailwind CSS v4 & Framer Motion
+- **Auth**: JWT (JSON Web Tokens) with Role-Based Access Control
 
 ## 🚀 Getting Started
 
 ### 1. Prerequisites
-Ensure you have Node.js (v18+) and npm installed. You also need a MongoDB database (local or Atlas).
+Ensure you have Node.js (v18+) installed. You will also need a PostgreSQL database URL (Neon.tech recommended).
 
 ### 2. Environment Variables
-Create a `.env.local` file in the root directory and add the following:
+Create a `.env` file in the root directory and add:
 ```env
-MONGODB_URI=mongodb://localhost:27017/smartpresence
+DATABASE_URL=your_postgresql_connection_string
 JWT_SECRET=your_super_secret_jwt_key
 ```
 
 ### 3. Installation
-Install the dependencies:
+Install the dependencies and sync your database:
 ```bash
 npm install
+npx prisma generate
+npx prisma db push
 ```
 
 ### 4. Running the Development Server
