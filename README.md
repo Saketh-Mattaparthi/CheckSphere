@@ -1,6 +1,6 @@
-# SmartPresence Pro 🚀
+# SmartPresence 🚀
 
-SmartPresence Pro is a futuristic, full-stack intelligence system for contactless classroom attendance. It eliminates proxy attendance through a combination of geofencing, dynamic QR code verification, and device fingerprinting.
+SmartPresence is a futuristic, full-stack intelligence system for contactless classroom attendance. It eliminates proxy attendance through a combination of geofencing, dynamic QR code verification, and device fingerprinting.
 
 ## 🌟 Features
 

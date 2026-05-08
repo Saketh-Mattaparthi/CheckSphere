@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SmartPresence Pro",
+  title: "SmartPresence",
   description: "Contactless attendance and classroom presence intelligence system",
 };
 

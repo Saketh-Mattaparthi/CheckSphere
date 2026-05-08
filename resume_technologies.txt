@@ -1,4 +1,4 @@
-Project Name: SmartPresence Pro
+Project Name: SmartPresence
 Role: Full-Stack Developer
 
 Core Technologies & Tools Used:
