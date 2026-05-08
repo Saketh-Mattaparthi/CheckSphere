@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SmartPresence Pro 🚀
 
-## Getting Started
+SmartPresence Pro is a futuristic, full-stack intelligence system for contactless classroom attendance. It eliminates proxy attendance through a combination of geofencing, dynamic QR code verification, and device fingerprinting.
 
-First, run the development server:
+## 🌟 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Multi-Role Dashboards**: Custom portals for Admins, Teachers, and Students.
+- **Geofenced Check-ins**: Students can only mark attendance if their physical location is within the teacher-defined perimeter.
+- **Dynamic Session Codes**: Live rotating codes prevent sharing outside the classroom.
+- **Anti-Proxy Integrity**: Device fingerprinting prevents multiple check-ins from the same device.
+- **AntiGravity Design System**: A premium, futuristic glassmorphic UI using Tailwind CSS and Framer Motion.
+- **Real-Time Analytics**: Visual trends using Recharts.
+
+## 🛠 Tech Stack
+
+- **Frontend**: Next.js 15 (App Router), React, Tailwind CSS v4, Framer Motion, Recharts
+- **Backend**: Next.js API Routes (Node.js/Express-like environment)
+- **Database**: MongoDB (Mongoose)
+- **Authentication**: Custom JWT Authentication with Role-Based Access Control
+
+## 🚀 Getting Started
+
+### 1. Prerequisites
+Ensure you have Node.js (v18+) and npm installed. You also need a MongoDB database (local or Atlas).
+
+### 2. Environment Variables
+Create a `.env.local` file in the root directory and add the following:
+```env
+MONGODB_URI=mongodb://localhost:27017/smartpresence
+JWT_SECRET=your_super_secret_jwt_key
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Installation
+Install the dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Running the Development Server
+Start the Next.js development server:
+```bash
+npm run dev
+```
+Navigate to `http://localhost:3000` to view the application.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 👥 Usage Guide
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Initialize Setup**: Go to `/register` and create an account. You can choose to register as an `admin`, `teacher`, or `student`.
+2. **Access Terminal**: Go to `/login` to access your respective dashboard.
+3. **Teacher Flow**: Navigate to "Initialize Session", set the class details, and start the live session. A code will appear.
+4. **Student Flow**: Navigate to "Join Live Session", ensure you are physically near the coordinates, and enter the code displayed on the teacher's screen.

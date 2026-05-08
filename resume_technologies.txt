@@ -1,0 +1,26 @@
+Project Name: SmartPresence Pro
+Role: Full-Stack Developer
+
+Core Technologies & Tools Used:
+--------------------------------------------------
+Frontend:
+• React.js (User Interface)
+• Tailwind CSS (Responsive styling and modern design)
+• HTML5 & CSS3
+• Chart.js / Recharts (For basic dashboard graphs)
+
+Backend & APIs:
+• Node.js (Server environment)
+• REST APIs (For handling data between frontend and backend)
+• JSON Web Tokens (JWT) for secure user login
+
+Database:
+• MongoDB (Database to store users and attendance)
+• Mongoose (To connect Node.js to MongoDB)
+
+Key Technical Concepts Implemented:
+--------------------------------------------------
+• Built different dashboards depending on if the user logs in as an Admin, Teacher, or Student.
+• Used basic GPS Geolocation data from the browser to check if a student is near the classroom.
+• Created a secure login system using hashed passwords and tokens.
+• Made the website fully responsive for mobile and desktop screens.
