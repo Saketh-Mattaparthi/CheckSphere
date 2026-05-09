@@ -53,10 +53,6 @@ Navigate to `http://localhost:3000` to view the application.
 
 ---
 
-## 📄 Resume-Ready Description
-
-**Role: Full-Stack Developer**
-
 ### Core Technologies:
 - **Frontend**: React.js, Tailwind CSS (Responsive Design), HTML5/CSS3
 - **Backend**: Node.js, REST APIs, JSON Web Tokens (JWT)

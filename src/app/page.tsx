@@ -31,10 +31,13 @@ export default function LandingPage() {
           CheckSphere utilizes dynamic Geofencing, multi-layer verification, and contactless intelligence to eliminate proxy attendance.
         </p>
         
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-4">
           <Link href="/login" className="w-full sm:w-auto bg-white text-black font-semibold px-8 py-4 rounded-full hover:bg-gray-200 transition-all flex items-center justify-center hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.2)]">
             Access Terminal
             <ChevronRight className="w-5 h-5 ml-2" />
+          </Link>
+          <Link href="/portfolio" className="w-full sm:w-auto glass-panel text-white font-medium px-8 py-4 rounded-full hover:bg-white/10 transition-all flex items-center justify-center hover:border-white/20">
+            View Portfolio
           </Link>
           <Link href="/register" className="w-full sm:w-auto glass-panel text-white font-medium px-8 py-4 rounded-full hover:bg-white/10 transition-all flex items-center justify-center hover:border-white/20">
             Initialize Setup

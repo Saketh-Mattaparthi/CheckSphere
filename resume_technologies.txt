@@ -23,4 +23,4 @@ Key Technical Concepts Implemented:
 • Built different dashboards depending on if the user logs in as an Admin, Teacher, or Student.
 • Used basic GPS Geolocation data from the browser to check if a student is near the classroom.
 • Created a secure login system using hashed passwords and tokens.
-• Made the website fully responsive for mobile and desktop screens.
+• Made the website fully responsive for mobile and desktop screens
