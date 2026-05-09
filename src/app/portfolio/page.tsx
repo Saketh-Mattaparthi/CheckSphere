@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import ProjectCard from "@/components/portfolio/ProjectCard";
 import PortfolioHero from "@/components/portfolio/PortfolioHero";
+import CreatorSection from "@/components/portfolio/CreatorSection";
 import Link from "next/link";
 import { ArrowLeft, Cpu, Globe, Database, Layout } from "lucide-react";
 
@@ -12,7 +13,7 @@ const projects = [
     description: "Intelligence for Classroom Presence. A next-generation attendance system using dynamic geofencing, device fingerprinting, and cryptographic QR codes to eliminate proxy attendance.",
     image: "/projects/checksphere.png",
     tags: ["Next.js 15", "Prisma", "PostgreSQL", "Tailwind CSS", "Geofencing"],
-    liveLink: "#",
+    liveLink: "https://checksphere.vercel.app",
     githubLink: "https://github.com/Saketh-Mattaparthi/CheckSphere"
   },
   {
@@ -20,8 +21,8 @@ const projects = [
     description: "Explainable AI for Medicinal Plant Identification. A deep learning application that identifies botanical species and provides transparent reasoning for its predictions using XAI techniques.",
     image: "/projects/luminaleaf.png",
     tags: ["React", "Python", "TensorFlow", "XAI", "FastAPI"],
-    liveLink: "#",
-    githubLink: "#"
+    liveLink: "https://luminaleaf-xai-1.onrender.com",
+    githubLink: "https://github.com/Saketh-Mattaparthi/Botanical-AI"
   }
 ];
 
@@ -97,31 +98,8 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="glass-panel p-12 md:p-24 text-center relative overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 via-transparent to-accent-500/10 pointer-events-none" />
-          
-          <h2 className="text-4xl md:text-6xl font-black text-white mb-6">
-            Ready to collaborate?
-          </h2>
-          <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-          </p>
-          
-          <a
-            href="mailto:saketh@example.com"
-            className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-black font-bold hover:bg-gray-200 transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.2)]"
-          >
-            Get In Touch
-          </a>
-        </motion.div>
-      </section>
+      {/* Creator Section */}
+      <CreatorSection />
     </main>
   );
 }
