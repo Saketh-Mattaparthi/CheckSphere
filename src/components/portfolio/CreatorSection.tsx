@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Mail, MapPin, ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 // Custom Social Icons since some lucide-react versions exclude them
 const GithubIcon = ({ className }: { className?: string }) => (
@@ -41,8 +42,13 @@ export default function CreatorSection() {
           <div className="relative flex-shrink-0">
             <div className="w-32 h-32 md:w-48 md:h-48 rounded-full border-2 border-primary-500/30 p-2 relative overflow-hidden group">
               <div className="w-full h-full rounded-full bg-gradient-to-br from-primary-600 to-accent-600 flex items-center justify-center overflow-hidden">
-                <span className="text-4xl md:text-6xl font-black text-white/50 group-hover:scale-110 transition-transform duration-500">SM</span>
-                {/* Placeholder for actual image: <img src="/creator.jpg" alt="Saketh Mattaparthi" className="w-full h-full object-cover" /> */}
+                <Image 
+                  src="/creator.jpg" 
+                  alt="Saketh Mattaparthi" 
+                  fill 
+                  className="object-cover scale-[1.8] translate-y-[10%] transition-transform duration-500 group-hover:scale-[1.9]" 
+                  style={{ objectPosition: "center 25%" }}
+                />
               </div>
             </div>
             {/* Status Indicator */}
